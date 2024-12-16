@@ -1,4 +1,9 @@
-# ME326-Group-8
+# ME326 Group-8 Final Project
+
+The goal of this project was to use a Locobot to engage in a resource-gathering task. The Locobot knows a pattern it must create at one AprilTag. At the other AprilTag, it must mimic the pattern created by another player. In this version, we simulated the other player having already created their pattern. The Locobot must not enter the resource region and cannot leave its "side" of the environment.
+
+## Video of Simulation
+[![Project Video](https://img.youtube.com/vi/sheLVeNuB7Y/0.jpg)](https://www.youtube.com/watch?v=sheLVeNuB7Y)
 
 ## Installation Notes
 
@@ -52,3 +57,21 @@ git clone -b galactic https://github.com/ros-perception/vision_opencv.git
 
 #### apriltag_ros
 We made some modifications of the apriltag_ros package to allow us to accept a different frame_id for the image. We also modified/addded a lunch file with the appropriate remappings for our robot. The changes and required files are contained in this repo under the `apriltag_ros` directory.
+
+## To Execute
+
+The Locobot pattern is must create is defined in `src/final_project/pattern/own_pattern.yaml`. To change the pattern that appears on the other side of the arena (the one simulated to be created by another player), change `src/final_project/launch/spawn_cube.launch.py`.
+
+### To Run
+
+After building all components:
+
+```bash
+ros2 launch final_project project.launch.py
+```
+
+After the environment loads:
+
+```bash
+ros2 run final_project state_machine
+```
